@@ -1,0 +1,1 @@
+package com.gildedrose;public class Conjured extends Item {    public Conjured(int sellIn, int quality) {        super("Conjured Mana Cake", sellIn, quality);    }    @Override    public void updateSellIn() {    }    @Override    public void updateQuality() {    }}
