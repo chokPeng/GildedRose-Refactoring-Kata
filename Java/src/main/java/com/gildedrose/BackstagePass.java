@@ -1,0 +1,1 @@
+package com.gildedrose;public class BackstagePass extends Item {    public BackstagePass( int sellIn, int quality) {        super("Backstage passes to a TAFKAL80ETC concert", sellIn, quality);    }    @Override    public void updateSellIn() {    }    @Override    public void updateQuality() {    }}

@@ -1,0 +1,1 @@
+package com.gildedrose;public class Common extends Item{    public Common(String name, int sellIn, int quality) {        super(name, sellIn, quality);    }    @Override    public void updateSellIn() {        super.updateSellIn();    }    @Override    public void updateQuality() {        super.updateQuality();    }}
