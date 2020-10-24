@@ -24,8 +24,13 @@ public class Item {
     }
     public void updateQuality(){
         if(sellIn>0){
-            quality--;
+            if(quality>0){
+                quality--;
+            }
+        }else{
+            if(quality>0){
+                quality=quality-2;
+            }
         }
-        quality=quality-1;
     }
 }
