@@ -1,1 +1,1 @@
-package com.gildedrose;public class Conjured extends Item {    public Conjured(int sellIn, int quality) {        super("Conjured Mana Cake", sellIn, quality);    }    @Override    protected boolean isConjured() {        return true;    }}
+package com.gildedrose;public class Conjured extends Item {    public Conjured(int sellIn, int quality) {        super("Conjured Mana Cake", sellIn, quality);    }}

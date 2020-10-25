@@ -1,1 +1,1 @@
-package com.gildedrose;public class Common extends Item{    public Common(String name, int sellIn, int quality) {        super(name, sellIn, quality);    }    @Override    protected boolean isCommon() {        return true;    }}
+package com.gildedrose;public class Common extends Item{    public Common(String name, int sellIn, int quality) {        super(name, sellIn, quality);    }}

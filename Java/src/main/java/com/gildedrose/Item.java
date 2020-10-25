@@ -18,27 +18,6 @@ public class Item {
     public String toString() {
         return this.name + ", " + this.sellIn + ", " + this.quality;
     }
-
-    protected boolean isSulfuras() {
-        return false;
-    }
-
-    protected boolean isBackstagePass() {
-        return false;
-    }
-
-    protected boolean isAgedBrie() {
-        return false;
-    }
-
-    protected boolean isCommon() {
-        return false;
-    }
-
-    protected boolean isConjured() {
-        return false;
-    }
-
     void passOneDay() {
         updateQuality();
         updateSellIn();
