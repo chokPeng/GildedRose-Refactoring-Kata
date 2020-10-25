@@ -3,6 +3,7 @@ package com.gildedrose;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 
+
 public class TexttestFixture {
     public static void main(String[] args) {
 //        PrintStream out = System.out;
@@ -14,18 +15,16 @@ public class TexttestFixture {
         ByteArrayOutputStream out = new ByteArrayOutputStream();
         PrintStream printStream=new PrintStream(out);
         printStream.println("OMGHAI!");
-
         Item[] items = new Item[] {
-//                new Item("+5 Dexterity Vest", 10, 20), //
-                Item.createCommon("+5 Dexterity Vest", 10, 20),
-                Item.createAgedBrie(2, 0), //
-                Item.createCommon("Elixir of the Mongoose", 5, 7), //
-                Item.createSulfuras(0, 80), //
-                Item.createSulfuras(-1, 80),
-                Item.createBackstagePass(15, 20),
-                Item.createBackstagePass(10, 49),
-                Item.createBackstagePass(5, 49),
-                Item.createConjured(3, 6) };
+                new Common("+5 Dexterity Vest", 10, 20),
+                new AgedBrie(2, 0), //
+                new Common("Elixir of the Mongoose", 5, 7), //
+                new Sulfuras(0, 80), //
+                new Sulfuras(-1, 80),
+                new BackstagePass(15, 20),
+                new BackstagePass(10, 49),
+                new BackstagePass(5, 49),
+                new Conjured(3, 6) };
 
         GildedRose app = new GildedRose(items);
 

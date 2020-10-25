@@ -18,21 +18,6 @@ public class Item {
    public String toString() {
         return this.name + ", " + this.sellIn + ", " + this.quality;
     }
-    static Item createCommon(String name,int sellIn, int quality){
-        return new Item(name, sellIn, quality);
-    }
-    static Item createAgedBrie(int sellIn, int quality){
-        return new Item("Aged Brie", sellIn, quality);
-    }
-    static Item createBackstagePass(int sellIn, int quality){
-        return new Item("Backstage passes to a TAFKAL80ETC concert", sellIn, quality);
-    }
-    static Item createConjured(int sellIn, int quality){
-        return new Item("Conjured Mana Cake", sellIn, quality);
-    }
-    static Item createSulfuras(int sellIn, int quality){
-        return new Item("Sulfuras, Hand of Ragnaros",sellIn,quality);
-    }
     protected void updateSellIn(){
         sellIn=sellIn-1;
     }
