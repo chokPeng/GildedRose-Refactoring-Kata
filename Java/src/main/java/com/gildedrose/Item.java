@@ -28,15 +28,12 @@ public class Item {
     }
 
     protected void updateQuality() {
-        if (quality > 0) {
-            quality--;
-        }
+        updateQualityWhenBiggerThan0();
     }
 
+
     protected void updateQualityAfterExpiration() {
-        if (quality > 0) {
-            quality--;
-        }
+        updateQualityWhenBiggerThan0();
     }
 
     protected void updateSellIn() {
@@ -45,5 +42,11 @@ public class Item {
 
     protected boolean isExpired() {
         return sellIn < 0;
+    }
+
+    private void updateQualityWhenBiggerThan0() {
+        if (quality > 0) {
+            quality--;
+        }
     }
 }
