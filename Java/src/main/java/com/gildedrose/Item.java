@@ -49,31 +49,8 @@ public class Item {
     }
 
     protected void updateQuality() {
-        if (!isAgedBrie()
-                && !isBackstagePass()) {
-            if (quality > 0) {
-                if (!isSulfuras()) {
-                    quality--;
-                }
-            }
-        } else {
-            if (quality < 50) {
-                quality++;
-
-                if (isBackstagePass()) {
-                    if (sellIn < 11) {
-                        if (quality < 50) {
-                            quality++;
-                        }
-                    }
-
-                    if (sellIn < 6) {
-                        if (quality < 50) {
-                            quality++;
-                        }
-                    }
-                }
-            }
+        if (quality > 0) {
+            quality--;
         }
     }
 
