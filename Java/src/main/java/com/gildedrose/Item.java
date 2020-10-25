@@ -49,4 +49,10 @@ public class Item {
             quality--;
         }
     }
+
+    protected void increaseQuality() {
+        if (quality < 50) {
+            quality++;
+        }
+    }
 }
