@@ -19,10 +19,10 @@ public class Item {
         return this.name + ", " + this.sellIn + ", " + this.quality;
     }
 
-    public void updateSellIn(){
+    protected void updateSellIn(){
         sellIn=sellIn-1;
     }
-    public void updateQuality(){
+    protected void updateQuality(){
         if(sellIn>0){
             if(quality>0){
                 quality--;
