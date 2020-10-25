@@ -18,26 +18,27 @@ public class Item {
    public String toString() {
         return this.name + ", " + this.sellIn + ", " + this.quality;
     }
-    protected void updateSellIn(){
-        sellIn=sellIn-1;
+
+    protected boolean isSulfuras() {
+        return false;
     }
 
-    public boolean isSulfuras() {
-        return name.equals("Sulfuras, Hand of Ragnaros");
+    protected boolean isBackstagePass() {
+        return false;
     }
 
-    public boolean isBackstagePass() {
-        return name.equals("Backstage passes to a TAFKAL80ETC concert");
+    protected boolean isAgedBrie() {
+        return false;
     }
-
-    public boolean isAgedBrie() {
-        return name.equals("Aged Brie");
+    protected boolean isCommon(){
+        return false;
     }
-
-
+    protected boolean isConjured(){
+        return false;
+    }
     void passOneDay() {
         updateQuality();
-        updateSe();
+        updateSellIn();
 
         if (isExpired()) {
             updateQualityAfterExpiration();
@@ -91,7 +92,7 @@ public class Item {
         }
     }
 
-    private void updateSe() {
+    private void updateSellIn() {
         if (!isSulfuras()) {
             sellIn--;
         }
