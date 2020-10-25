@@ -1,1 +1,1 @@
-package com.gildedrose;public class Conjured extends Item {    public Conjured(int sellIn, int quality) {        super("Conjured Mana Cake", sellIn, quality);    }}
+package com.gildedrose;public class Conjured extends Item {    public Conjured(int sellIn, int quality) {        super("Conjured Mana Cake", sellIn, quality);    }    protected void decreaseQuality() {        if(quality>2){            quality=quality-2;            return;        }        quality=0;    }}

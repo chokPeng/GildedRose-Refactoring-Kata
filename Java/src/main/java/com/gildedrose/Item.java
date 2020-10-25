@@ -28,12 +28,12 @@ public class Item {
     }
 
     protected void updateQuality() {
-        updateQualityWhenBiggerThan0();
+        decreaseQuality();
     }
 
 
     protected void updateQualityAfterExpiration() {
-        updateQualityWhenBiggerThan0();
+        decreaseQuality();
     }
 
     protected void updateSellIn() {
@@ -44,7 +44,7 @@ public class Item {
         return sellIn < 0;
     }
 
-    private void updateQualityWhenBiggerThan0() {
+    protected void decreaseQuality() {
         if (quality > 0) {
             quality--;
         }

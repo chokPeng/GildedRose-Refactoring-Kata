@@ -6,7 +6,6 @@ import java.io.PrintStream;
 
 public class TexttestFixture {
     public static void main(String[] args) {
-//        PrintStream out = System.out;
         String baseline = getBaseline();
         System.out.println(baseline);
     }
