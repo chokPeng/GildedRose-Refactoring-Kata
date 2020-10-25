@@ -18,19 +18,101 @@ public class Item {
    public String toString() {
         return this.name + ", " + this.sellIn + ", " + this.quality;
     }
-
+    static Item createCommon(String name,int sellIn, int quality){
+        return new Item(name, sellIn, quality);
+    }
+    static Item createAgedBrie(int sellIn, int quality){
+        return new Item("Aged Brie", sellIn, quality);
+    }
+    static Item createBackstagePass(int sellIn, int quality){
+        return new Item("Backstage passes to a TAFKAL80ETC concert", sellIn, quality);
+    }
+    static Item createConjured(int sellIn, int quality){
+        return new Item("Conjured Mana Cake", sellIn, quality);
+    }
+    static Item createSulfuras(int sellIn, int quality){
+        return new Item("Sulfuras, Hand of Ragnaros",sellIn,quality);
+    }
     protected void updateSellIn(){
         sellIn=sellIn-1;
     }
-    protected void updateQuality(){
-        if(sellIn>0){
-            if(quality>0){
-                quality--;
+
+    public boolean isSulfuras() {
+        return name.equals("Sulfuras, Hand of Ragnaros");
+    }
+
+    public boolean isBackstagePass() {
+        return name.equals("Backstage passes to a TAFKAL80ETC concert");
+    }
+
+    public boolean isAgedBrie() {
+        return name.equals("Aged Brie");
+    }
+
+
+    void passOneDay() {
+        updateQuality();
+        updateSe();
+
+        if (isExpired()) {
+            updateQualityAfterExpiration();
+        }
+    }
+
+    protected void updateQuality() {
+        if (!isAgedBrie()
+                && !isBackstagePass()) {
+            if (quality > 0) {
+                if (!isSulfuras()) {
+                    quality--;
+                }
             }
-        }else{
-            if(quality>0){
-                quality=quality-2;
+        } else {
+            if (quality < 50) {
+                quality++;
+
+                if (isBackstagePass()) {
+                    if (sellIn < 11) {
+                        if (quality < 50) {
+                            quality++;
+                        }
+                    }
+
+                    if (sellIn < 6) {
+                        if (quality < 50) {
+                            quality++;
+                        }
+                    }
+                }
             }
         }
+    }
+
+    private void updateQualityAfterExpiration() {
+        if (!isAgedBrie()) {
+            if (!isBackstagePass()) {
+                if (quality > 0) {
+                    if (!isSulfuras()) {
+                        quality--;
+                    }
+                }
+            } else {
+                quality = 0;
+            }
+        } else {
+            if (quality < 50) {
+                quality++;
+            }
+        }
+    }
+
+    private void updateSe() {
+        if (!isSulfuras()) {
+            sellIn--;
+        }
+    }
+
+    private boolean isExpired() {
+        return sellIn < 0;
     }
 }
