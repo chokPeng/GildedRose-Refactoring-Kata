@@ -14,8 +14,8 @@ public class Item {
         this.quality = quality;
     }
 
-   @Override
-   public String toString() {
+    @Override
+    public String toString() {
         return this.name + ", " + this.sellIn + ", " + this.quality;
     }
 
@@ -30,12 +30,15 @@ public class Item {
     protected boolean isAgedBrie() {
         return false;
     }
-    protected boolean isCommon(){
+
+    protected boolean isCommon() {
         return false;
     }
-    protected boolean isConjured(){
+
+    protected boolean isConjured() {
         return false;
     }
+
     void passOneDay() {
         updateQuality();
         updateSellIn();
@@ -74,31 +77,32 @@ public class Item {
         }
     }
 
-    private void updateQualityAfterExpiration() {
-        if (!isAgedBrie()) {
-            if (!isBackstagePass()) {
-                if (quality > 0) {
-                    if (!isSulfuras()) {
-                        quality--;
-                    }
-                }
-            } else {
-                quality = 0;
-            }
-        } else {
+    protected void updateQualityAfterExpiration() {
+        if (isAgedBrie()) {
             if (quality < 50) {
                 quality++;
             }
+            return;
         }
+        if (isBackstagePass()) {
+            quality = 0;
+            return;
+        }
+        if (quality <= 0) {
+            return;
+        }
+        if (isSulfuras()) {
+            return;
+        }
+        quality--;
+
     }
 
-    private void updateSellIn() {
-        if (!isSulfuras()) {
-            sellIn--;
-        }
+    protected void updateSellIn() {
+        sellIn--;
     }
 
-    private boolean isExpired() {
+    protected boolean isExpired() {
         return sellIn < 0;
     }
 }
